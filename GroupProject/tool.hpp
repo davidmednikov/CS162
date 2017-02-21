@@ -16,10 +16,10 @@ protected:
 public:
     Tool();
     virtual ~Tool();
-    virtual bool fight(Tool) = 0;
+    virtual bool fight(Tool* tool)=0;
     char getType();
     int getStrength();
-    int setStrength(int str);
+    void setStrength(int str);
 };
 
 #endif

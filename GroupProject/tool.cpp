@@ -37,7 +37,7 @@ int Tool::getStrength()
  ** Description: retrieve strength value
  ** Returns: int
  *********************************************************************/
-int Tool::setStrength(int str)
+void Tool::setStrength(int str)
 {
     strength = str;
 }
