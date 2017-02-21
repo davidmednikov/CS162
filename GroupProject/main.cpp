@@ -1,6 +1,6 @@
 /*********************************************************************
  ** Program name:  Play Rock, Paper, Scissors!!!
- ** Author: Jose Cisneros, 
+ ** Author: Group 18 
  ** Date: 2/26/2017
  ** Description: a Rock, Paper, Scissors game simulation.
  *********************************************************************/
