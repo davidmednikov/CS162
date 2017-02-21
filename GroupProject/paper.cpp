@@ -15,7 +15,7 @@ Paper::Paper()
 }
 
 /*********************************************************************
- ** Description: default constructor
+ ** Description: 1 parameter  constructor that sets strength
  ** Parameter: int
  *********************************************************************/
 Paper::Paper(int str)
