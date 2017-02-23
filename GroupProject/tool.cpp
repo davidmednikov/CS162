@@ -44,6 +44,7 @@ void Tool::setStrength(int str)
 
 /*********************************************************************
  ** Description: overloaded assignment operator
+ ** Parameters: Reference to object of type Tool
  ** Returns: reference to object of type Tool (*this)
  *********************************************************************/
 Tool& operator=(const Tool& tool)
