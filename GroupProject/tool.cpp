@@ -42,4 +42,23 @@ void Tool::setStrength(int str)
     strength = str;
 }
 
+/*********************************************************************
+ ** Description: overloaded assignment operator
+ ** Returns: reference to object of type Tool (*this)
+ *********************************************************************/
+Tool& operator=(const Tool& tool)
+{
+    //test for self-assignment
+    if (this == &tool)
+    {
+    	return *this;
+    }
+    
+    //copy data members
+    this->strength = tool.getStrength();
+    this->type = tool.getType();
+
+    //return existing object so operator can be chained
+    return *this; 
+}
 
