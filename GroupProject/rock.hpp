@@ -15,6 +15,7 @@ class Rock : public Tool
 public:
 	Rock();
 	Rock(int str);
+	Rock& operator=(const Rock& rock);
 	~Rock();
 	bool fight(Tool* tool);
 };
