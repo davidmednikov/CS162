@@ -14,7 +14,7 @@ class Scissors : public Tool
 public:
 	Scissors();
 	Scissors(int str);
-	Scissors& operator=(Scissors& scissors);
+	Scissors& operator=(const Scissors& scissors);
 	~Scissors();
 	bool fight(Tool* tool);
 };
