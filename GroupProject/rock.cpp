@@ -39,3 +39,24 @@ bool Rock::fight(Tool* tool)
 {
     return true;
 }
+
+/*********************************************************************
+ ** Description: Overloaded Assignment (=) Operator
+ ** Parameter: Reference to object of type Rock
+ ** Returns: Reference to object of type Rock (*this)
+ *********************************************************************/
+Rock& operator=(const Rock& rock)
+{
+    //test for self-assignment
+    if (this == &rock)
+    {
+    	return *this;
+    }
+    //copy data members
+    this->strength = rock.getStrength();
+    this->type = rock.getType();
+    
+    //return existing object so operator can be chained
+    return *this;
+}
+
