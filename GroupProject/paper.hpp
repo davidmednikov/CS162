@@ -15,6 +15,7 @@ class Paper: public Tool
 public:
     Paper();
     Paper(int str);
+    Paper& operator=(const Paper& paper);
     ~Paper();
     bool fight(Tool* tool);
 };
