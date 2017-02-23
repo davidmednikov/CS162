@@ -38,3 +38,23 @@ bool Scissors::fight(Tool* tool)
 {
     return true;
 }
+
+/*********************************************************************
+ ** Description: Overloaded Assignment (=) Operator
+ ** Parameter: Reference to object of type scissors
+ ** Returns: reference to object of type scissors (*this)
+ *********************************************************************/
+Scissors& operator=(const Scissors& scissors)
+{
+    //test for self-assignment
+    if (this == &scissors)
+    {
+    	return *this;
+    }
+    //copy data members
+    this->strength = scissors.getStrength();
+    this->type = scissors.getType();
+    
+    //return existing object so operator can be chained
+    return *this;
+}
