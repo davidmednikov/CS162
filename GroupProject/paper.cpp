@@ -38,3 +38,23 @@ bool Paper::fight(Tool* tool)
 {
     return true;
 }
+
+/*********************************************************************
+ ** Description: Overloaded Assignment (=) Operator
+ ** Parameter: Reference to object of type Paper
+ ** Returns: Reference to object of type Paper (*this)
+ *********************************************************************/
+Paper& operator=(const Paper& paper
+{
+    //test for self-assignment
+    if (this == &paper)
+    {
+    	return *this;
+    }
+    //copy data members
+    this->strength = paper.getStrength();
+    this->type = paper.getType();
+    
+    //return existing object so operator can be chained
+    return *this;
+}
