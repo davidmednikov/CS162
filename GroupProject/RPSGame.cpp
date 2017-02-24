@@ -105,6 +105,9 @@ void RPSGame::round()
 
 	// update score
 
+	delete human;
+	delete computer;
+
 }
 
 /*********************************************************************
