@@ -37,7 +37,45 @@ Rock::~Rock(){}
  *********************************************************************/
 bool Rock::fight(Tool* tool)
 {
-    return true;
+   bool Rock::fight(Tool* tool)
+{
+if (tool.getType == p)
+{
+	if((strength / 2 ) > tool.getStrength)
+	{
+		return true;
+	}
+	
+	else
+	{
+		return false;
+	}
+
+}
+
+if (tool.getType == r)
+{
+	
+		return false;
+	
+
+}
+
+if (tool.getType == s)
+{
+	if((strength * 2 ) > tool.getStrength)
+	{
+		return true;
+	}
+	
+	else
+	{
+		return false;
+	}
+
+}
+  
+}
 }
 
 /*********************************************************************
