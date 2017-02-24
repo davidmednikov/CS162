@@ -28,7 +28,13 @@ RPSGame::RPSGame()
 /*********************************************************************
  ** Description: default destructor
  *********************************************************************/
-RPSGame::~RPSGame(){}
+RPSGame::~RPSGame()
+{
+	delete human;
+	delete computer;
+	human = NULL;
+	computer = null;
+}
 
 /*********************************************************************
  ** Description: Computer guesses human's tool
@@ -107,10 +113,7 @@ void RPSGame::round()
 	// code for the fight goes here
 
 	// update score
-
-	delete human;
-	delete computer;
-
+	
 }
 
 /*********************************************************************
