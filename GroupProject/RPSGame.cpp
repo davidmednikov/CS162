@@ -33,7 +33,7 @@ RPSGame::~RPSGame()
 	delete human;
 	delete computer;
 	human = NULL;
-	computer = null;
+	computer = NULL;
 }
 
 /*********************************************************************
