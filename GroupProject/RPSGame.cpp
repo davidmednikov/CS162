@@ -18,8 +18,11 @@ using std::string;
  *********************************************************************/
 RPSGame::RPSGame()
 {
-	Tool* human;
-	Tool* computer;
+	human;
+	computer;
+	human_wins = 0;
+	computer_wins = 0;
+	ties = 0;
 }
 
 /*********************************************************************
@@ -28,7 +31,7 @@ RPSGame::RPSGame()
 RPSGame::~RPSGame(){}
 
 /*********************************************************************
- ** Description: Guesses the tool that the computer will use by randomly
+ ** Description: Computer guesses human's tool
  ** generating an int between 0 and 2
  ** Parameter: none
  ** Returns: int representing the tool: 0 = rock, 1 = paper, 2 = scissors
@@ -52,7 +55,6 @@ void RPSGame::endGame(){}
  *********************************************************************/
 void RPSGame::round()
 {
-	int compTool = guess();
 	bool validInput = false;
 	string userChoice;
 
@@ -85,20 +87,21 @@ void RPSGame::round()
 		}
 	}
 	
+	int compGuess = guess(); // guess what human chose
 
-	if (compTool == 0) // computer chose rock
-	{
-		computer = new Rock;
-	}
-
-	else if (compTool == 1) // computer chose paper
+	if (compGuess == 0) // computer guesses rock
 	{
 		computer = new Paper;
 	}
 
-	else // computer chose scissors
+	else if (compGuess == 1) // computer guesses paper
 	{
 		computer = new Scissors;
+	}
+
+	else // computer guesses scissors
+	{
+		computer = new Rock;
 	}
 
 	// code for the fight goes here
