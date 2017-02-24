@@ -24,6 +24,7 @@ private:
 public:
 	RPSGame();
 	~RPSGame();
+	RPSGame& operator=(const RPSGame& game);
 	void guess();
 	void endGame();
 	void round();
