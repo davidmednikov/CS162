@@ -18,8 +18,8 @@ public:
     virtual ~Tool();
     virtual bool fight(Tool* tool)=0;
     Tool& operator=(const Tool& tool);
-    char getType();
-    int getStrength();
+    char getType() const;
+    int getStrength() const;
     void setStrength(int str);
 };
 

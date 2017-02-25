@@ -83,7 +83,7 @@ if (tool.getType == s)
  ** Parameter: Reference to object of type Rock
  ** Returns: Reference to object of type Rock (*this)
  *********************************************************************/
-Rock& operator=(const Rock& rock)
+Rock& Rock::operator=(const Rock& rock)
 {
     //test for self-assignment
     if (this == &rock)

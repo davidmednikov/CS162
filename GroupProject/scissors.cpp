@@ -82,7 +82,7 @@ if (tool.getType == p)
  ** Parameter: Reference to object of type scissors
  ** Returns: reference to object of type scissors (*this)
  *********************************************************************/
-Scissors& operator=(const Scissors& scissors)
+Scissors& Scissors::operator=(const Scissors& scissors)
 {
     //test for self-assignment
     if (this == &scissors)

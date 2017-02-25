@@ -19,7 +19,7 @@ Tool::~Tool(){}
  ** Description: retrieve Tool type
  ** Returns: char
  *********************************************************************/
-char Tool::getType()
+char Tool::getType() const
 {
     return type;
 }
@@ -28,7 +28,7 @@ char Tool::getType()
  ** Description: retrieve strength value
  ** Returns: int
  *********************************************************************/
-int Tool::getStrength()
+int Tool::getStrength() const
 {
     return strength;
 }
@@ -47,7 +47,7 @@ void Tool::setStrength(int str)
  ** Parameters: Reference to object of type Tool
  ** Returns: reference to object of type Tool (*this)
  *********************************************************************/
-Tool& operator=(const Tool& tool)
+Tool& Tool::operator=(const Tool& tool)
 {
     //test for self-assignment
     if (this == &tool)

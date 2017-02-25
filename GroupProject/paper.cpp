@@ -37,9 +37,9 @@ Paper::~Paper(){}
 bool Paper::fight(Tool* tool)
 {
     {
-if (tool.getType == r)
+if (tool->getType() == 'r')
 {
-	if((strength / 2 ) > tool.getStrength)
+	if((strength / 2 ) > tool->getStrength())
 	{
 		return true;
 	}
@@ -51,7 +51,7 @@ if (tool.getType == r)
 
 }
 
-if (tool.getType == s)
+if (tool->getType() == 's')
 {
 	
 		return false;
@@ -59,9 +59,9 @@ if (tool.getType == s)
 
 }
 
-if (tool.getType == p)
+if (tool->getType() == 'p')
 {
-	if((strength * 2 ) > tool.getStrength)
+	if((strength * 2 ) > tool->getStrength())
 	{
 		return true;
 	}
@@ -83,7 +83,7 @@ if (tool.getType == p)
  ** Parameter: Reference to object of type Paper
  ** Returns: Reference to object of type Paper (*this)
  *********************************************************************/
-Paper& operator=(const Paper& paper
+Paper& Paper::operator=(const Paper& paper)
 {
     //test for self-assignment
     if (this == &paper)
