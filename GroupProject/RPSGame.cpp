@@ -121,7 +121,7 @@ void RPSGame::round()
  ** Parameter: Reference to object of type RPSGame
  ** Returns: Reference to object of type RPSGame (*this)
  *********************************************************************/
-RPSGame& operator=(const RPSGame& game)
+RPSGame& RPSGame::operator=(const RPSGame& game)
 {
 	if(this == &game)
 	{
