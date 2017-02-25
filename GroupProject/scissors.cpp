@@ -36,46 +36,43 @@ Scissors::~Scissors(){}
  *********************************************************************/
 bool Scissors::fight(Tool* tool)
 {
-if (tool.getType == r)
-{
-	if((strength / 2 ) > tool.getStrength)
+	if (tool->getType() == 'r')
 	{
-		return true;
-	}
-	
-	else
-	{
-		return false;
-	}
+		if((strength / 2 ) > tool->getStrength())
+		{
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
 
-}
-
-if (tool.getType == s)
-{
-	
-		return false;
-	
-
-}
-
-if (tool.getType == p)
-{
-	if((strength * 2 ) > tool.getStrength)
-	{
-		return true;
-	}
-	
-	else
-	{
-		return false;
 	}
 
+	if (tool->getType() == 's')
+	{
+		
+			return false;
+		
+
+	}
+
+	if (tool->getType() == 'p')
+	{
+		if((strength * 2 ) > tool->getStrength())
+		{
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
+
+	}
 }
 
-
-   
-}
-}
 
 /*********************************************************************
  ** Description: Overloaded Assignment (=) Operator
