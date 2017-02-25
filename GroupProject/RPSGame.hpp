@@ -28,6 +28,7 @@ public:
 	int guess();
 	void endGame();
 	void round();
+	int validNumInput();
 };
 
 #endif
