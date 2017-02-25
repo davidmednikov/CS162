@@ -21,6 +21,12 @@ private:
 	int human_wins;
 	int computer_wins;
 	int ties;
+	int rockStrH;
+	int paperStrH;
+	int scissorsStrH;
+	int rockStrC;
+	int paperStrC;
+	int scissorsStrC;
 public:
 	RPSGame();
 	~RPSGame();
@@ -28,7 +34,6 @@ public:
 	int guess();
 	void endGame();
 	void round();
-	int validNumInput();
 };
 
 #endif

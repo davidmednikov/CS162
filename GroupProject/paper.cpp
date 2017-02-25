@@ -32,50 +32,65 @@ Paper::~Paper(){}
 /*********************************************************************
  ** Description: Compare Tool Strengths
  ** Parameter: Tool Object Pointer
- ** Returns: bool
+ ** Returns: int
  *********************************************************************/
-bool Paper::fight(Tool* tool)
+int Paper::fight(Tool* tool)
 {
-    {
-if (tool->getType() == 'r')
-{
-	if((strength / 2 ) > tool->getStrength())
+    
+	if (tool->getType() == 'r') // playing rock
 	{
-		return true;
-	}
+		if(strength * 2  > tool->getStrength()) // paper has advantage over rock
+		{
+			return 1; // paper wins
+		}
 	
-	else
-	{
-		return false;
-	}
+		else if (strength * 2 == tool->getStrength()) // paper has advantage over rock
+		{
+			return 2; // tie
+		}
 
-}
+		else // paper strength * 2 < rock strength
+		{
+			return 0; // rock wins
+		}
 
-if (tool->getType() == 's')
-{
-	
-		return false;
-	
-
-}
-
-if (tool->getType() == 'p')
-{
-	if((strength * 2 ) > tool->getStrength())
-	{
-		return true;
-	}
-	
-	else
-	{
-		return false;
 	}
 
-}
+	else if (tool->getType() == 's') // playing scissors
+	{
+		if (strength / 2  > tool->getStrength()) // paper has a disadvantage
+		{
+			return 1; // paper wins
+		}
 
+		else if (strength / 2 == tool->getStrength()) // paper has a disadvantage
+		{
+			return 2; // tie
+		}
 
-   
-}
+		else
+		{
+			return 0; // scissors wins
+		}
+	}
+
+	else if (tool->getType() == 'p') // playing paper
+	{
+		if (strength > tool->getStrength()) // paper playing paper
+		{
+			return 1; // my paper wins
+		}
+
+		else if (strength == tool->getStrength()) // paper playering paper
+		{
+			return 2; // tie
+		}
+
+		else // my paper strength < other paper strength
+		{
+			return 0; // other paper wins
+		}
+	}  
 }
 
 /*********************************************************************

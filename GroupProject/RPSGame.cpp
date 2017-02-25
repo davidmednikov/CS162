@@ -4,6 +4,7 @@
  ** Description: RPSGame.cpp is the RPSGame class implementation file.
  *********************************************************************/
 #include "RPSGame.hpp"
+#include "getInt.h"
 #include <stdlib.h> // rand() and srand()
 #include <iostream>
 #include <string>
@@ -26,44 +27,46 @@ RPSGame::RPSGame()
 	
 	
 	cout << "Welcome! \n";
-		cout << "Do you want to set"
-		cout <<	" different strengths for the tools? \n";
-		cout << "1)yes 2)no \n";
-		int choice1;
-		choice1 = validNumInput();
-		while (choice1 <= 0 || choice1 >=3)
-		{
-			cout << " Please choose a menu option \n";
-			choice1 = validNumInput();
-		}
+	cout << "Do you want to set different strengths for the tools?\n";
+	cout << "1)yes 2)no \n";
+	int choice1 = getInt(1, 2);
 
-		switch (choice1) {
-
+	switch (choice1)
+	{
 		case 1: {
-			cout << "What will be the strength of rock?";
-			int rstr;
-			rstr = validNumInput();
-			Rock masterrock(rstr);
+			cout << "\nWhat will be the strength of your rock: ";
+			rockStrH = getInt(1);
+			
+			cout << "\nWhat will be the strength of the computer's rock: ";
+			rockStrC = getInt(1);
+			
+			cout << "\nWhat will be the strength of your paper: ";
+			paperStrH = getInt(1);
 
-			cout << "What will be the strength of paper?";
-			int pstr;
-			pstr = validNumInput();
-			Paper masterpaper(pstr);
+			cout << "\nWhat will be the strength of the computer's paper: ";
+			paperStrC = getInt(1);
 
-			cout << "What will be the strength of scissors?";
-			int sstr;
-			sstr = validNumInput();
-			Scissors masterscissors(sstr);
+			cout << "\nWhat will be the strength of your scissors: ";
+			scissorsStrH = getInt(1);
 
-		
+			cout << "\nWhat will be the strength of the computer's scissors: ";
+			scissorsStrC = getInt(1);
+			break;
 		}
 		case 2:
 		{
-			Rock masterrock;
-			Paper masterpaper;
-			Scissors masterscissors;
-		}}
-
+			rockStrH = 1;
+			paperStrH = 1;
+			scissorsStrH = 1;
+			rockStrC = 1;
+			paperStrC = 1;
+			scissorsStrC = 1;
+			break;
+		}
+		default:
+			break;
+	}
+			
 }
 
 /*********************************************************************
@@ -71,10 +74,6 @@ RPSGame::RPSGame()
  *********************************************************************/
 RPSGame::~RPSGame()
 {
-	delete human;
-	delete computer;
-	human = NULL;
-	computer = NULL;
 }
 
 /*********************************************************************
@@ -112,24 +111,25 @@ void RPSGame::round()
 
 		if (userChoice == "r" || userChoice == "R")
 		{
-			human = materrock;
+			human = new Rock(rockStrH);
 			validInput = true;
 		}
 
 		else if (userChoice == "p" || userChoice == "P")
 		{
-			human = new masterpaper;
+			human = new Paper(paperStrH);
+			validInput = true;
 		}
 		
 		else if (userChoice == "s" || userChoice == "S")
 		{
-			human = new masterscissors;
+			human = new Scissors(scissorsStrC);
 			validInput = true;
 		}
 
 		else
 		{
-			cout << "You did not enter a tool.\n";
+			cout << "You did not enter a tool. Please try again.\n";
 			cin.clear();
 		}
 	}
@@ -138,22 +138,36 @@ void RPSGame::round()
 
 	if (compGuess == 0) // computer guesses rock
 	{
-		computer = masterpaper;
+		computer = new Paper(paperStrC);
 	}
 
 	else if (compGuess == 1) // computer guesses paper
 	{
-		computer = masterscissors;
+		computer = new Scissors(scissorsStrC);
 	}
 
 	else // computer guesses scissors
 	{
-		computer = masterrock;
+		computer = new Rock(rockStrC);
 	}
 
-	// code for the fight goes here
+	int result = human->fight(computer);
 
-	// update score
+	if (result == 0) // computer wins
+	{
+		++computer_wins;
+	}
+	else if (result == 1) // human wins
+	{
+		++human_wins;
+	}
+	else // tie
+	{ 
+		++ties;
+	}
+
+	delete human;
+	delete computer;
 	
 }
 
@@ -177,27 +191,3 @@ RPSGame& RPSGame::operator=(const RPSGame& game)
 	
 	return *this;
 }
-
-
-
-/*********************************************************************
- ** Description: input validation for numbers
- ** Parameter: none
- ** Returns: number
- *********************************************************************/
-
-int RPSGame::validNumInput()
-{
-	int x;
-	cin >> x;
-	while (x <= 0)
-	{
-
-		cin.clear();
-		cin.ignore(100, '\n');
-		cout << "Please enter a positive integer ";
-		cin >> x;
-	}
-	return x;
-}
-	

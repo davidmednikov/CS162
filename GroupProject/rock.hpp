@@ -17,7 +17,7 @@ public:
 	Rock(int str);
 	Rock& operator=(const Rock& rock);
 	~Rock();
-	bool fight(Tool* tool);
+	int fight(Tool* tool);
 };
 
 #endif

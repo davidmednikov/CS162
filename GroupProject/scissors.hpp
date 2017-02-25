@@ -16,7 +16,7 @@ public:
 	Scissors(int str);
 	Scissors& operator=(const Scissors& scissors);
 	~Scissors();
-	bool fight(Tool* tool);
+	int fight(Tool* tool);
 };
 
 #endif

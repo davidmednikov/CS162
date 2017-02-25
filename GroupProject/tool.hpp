@@ -16,7 +16,7 @@ protected:
 public:
     Tool();
     virtual ~Tool();
-    virtual bool fight(Tool* tool)=0;
+    virtual int fight(Tool* tool)=0;
     Tool& operator=(const Tool& tool);
     char getType() const;
     int getStrength() const;
