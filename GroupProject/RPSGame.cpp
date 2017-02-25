@@ -26,43 +26,45 @@ RPSGame::RPSGame()
 	
 	
 	cout << "Welcome! \n";
-		cout << "Do you want to set"
-		cout <<	" different strengths for the tools? \n";
-		cout << "1)yes 2)no \n";
-		int choice1;
+	cout << "Do you want to set";
+	cout <<	" different strengths for the tools? \n";
+	cout << "1)yes 2)no \n";
+	int choice1;
+	choice1 = validNumInput();
+	while (choice1 != 1 && choice1 != 2) //makes choices explicit
+	{
+		cout << " Please choose a menu option \n";
 		choice1 = validNumInput();
-		while (choice1 <= 0 || choice1 >=3)
-		{
-			cout << " Please choose a menu option \n";
-			choice1 = validNumInput();
-		}
+	}
 
-		switch (choice1) {
+	switch (choice1) 
+	{
+	case 1: 
+		cout << "What will be the strength of the human's rock?";
+		this->rockStrH = validNumInput();
+		cout << "What will be the strength of the computer's rock?";
+		this->rockStrC = validNumInput();
 
-		case 1: {
-			cout << "What will be the strength of rock?";
-			int rstr;
-			rstr = validNumInput();
-			Rock masterrock(rstr);
+		cout << "What will be the strength of the human's paper?";
+		this->paperStrH = validNumInput();
+		cout << "What will be the strength of the computer's paper?";
+		this->paperStrC = validNumInput();
 
-			cout << "What will be the strength of paper?";
-			int pstr;
-			pstr = validNumInput();
-			Paper masterpaper(pstr);
+		cout << "What will be the strength of the human's scissors?";
+		this->scissorsStrH = validNumInput();
+		cout << "What will be the strength of the computer's scissors?";
+		this->scissorsStrC = validNumInput();
 
-			cout << "What will be the strength of scissors?";
-			int sstr;
-			sstr = validNumInput();
-			Scissors masterscissors(sstr);
-
-		
-		}
-		case 2:
-		{
-			Rock masterrock;
-			Paper masterpaper;
-			Scissors masterscissors;
-		}}
+		break;
+	case 2:
+		this->paperStrH = 1;
+		this->rockStrH = 1;
+		this->scissorsStrH = 1;
+		this->paperStrC = 1;
+		this->rockStrC = 1;
+		this->scissorsStrC = 1;
+		break;
+	}
 
 }
 
@@ -112,18 +114,19 @@ void RPSGame::round()
 
 		if (userChoice == "r" || userChoice == "R")
 		{
-			human = materrock;
+			human = new Rock(rockStrH);
 			validInput = true;
 		}
 
 		else if (userChoice == "p" || userChoice == "P")
 		{
-			human = new masterpaper;
+			human = new Paper(paperStrH);
+			validInput = true;
 		}
 		
 		else if (userChoice == "s" || userChoice == "S")
 		{
-			human = new masterscissors;
+			human = new Scissors(scissorsStrH);
 			validInput = true;
 		}
 
@@ -138,17 +141,17 @@ void RPSGame::round()
 
 	if (compGuess == 0) // computer guesses rock
 	{
-		computer = masterpaper;
+		computer = new Rock(rockStrC);
 	}
 
 	else if (compGuess == 1) // computer guesses paper
 	{
-		computer = masterscissors;
+		computer = new Paper(paperStrC);
 	}
 
 	else // computer guesses scissors
 	{
-		computer = masterrock;
+		computer = new Scissors(scissorsStrC);
 	}
 
 	// code for the fight goes here
