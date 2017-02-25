@@ -59,7 +59,7 @@ bool Rock::fight(Tool* tool)
 
 	}
 
-	if (tool->getType == 's')
+	if (tool->getType() == 's')
 	{
 		if((strength * 2 ) > tool->getStrength())
 		{
