@@ -37,46 +37,42 @@ Rock::~Rock(){}
  *********************************************************************/
 bool Rock::fight(Tool* tool)
 {
-   bool Rock::fight(Tool* tool)
-{
-if (tool.getType == p)
-{
-	if((strength / 2 ) > tool.getStrength)
+	if (tool->getType() == 'p')
 	{
-		return true;
-	}
-	
-	else
-	{
-		return false;
-	}
+		if((strength / 2 ) > tool->getStrength())
+		{
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
 
-}
-
-if (tool.getType == r)
-{
-	
-		return false;
-	
-
-}
-
-if (tool.getType == s)
-{
-	if((strength * 2 ) > tool.getStrength)
-	{
-		return true;
-	}
-	
-	else
-	{
-		return false;
 	}
 
+	if (tool->getType() == 'r')
+	{
+		
+			return false;
+		
+
+	}
+
+	if (tool->getType == 's')
+	{
+		if((strength * 2 ) > tool->getStrength())
+		{
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
+	} 
 }
-  
-}
-}
+
 
 /*********************************************************************
  ** Description: Overloaded Assignment (=) Operator
