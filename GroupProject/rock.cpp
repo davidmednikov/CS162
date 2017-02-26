@@ -39,12 +39,12 @@ int Rock::fight(Tool* tool)
 {
 	if (tool->getType() == 'p') // playing paper
 	{
-		if (strength / 2  > tool->getStrength()) // rock has a disadvantage
+		if (strength > tool->getStrength() * 2) // rock has a disadvantage
 		{
 			return 1; // rock wins
 		}
 
-		else if (strength / 2 == tool->getStrength()) // rock has a disadvantage
+		else if (strength == tool->getStrength() * 2) // rock has a disadvantage
 		{
 			return 2; // tie
 		}
@@ -76,7 +76,7 @@ int Rock::fight(Tool* tool)
 
 	if (tool->getType() == 's') // playing against scissors
 	{
-		if (strength * 2  > tool->getStrength()) // rock has advantage over scissors
+		if (strength * 2 > tool->getStrength()) // rock has advantage over scissors
 		{
 			return 1; // rock wins
 		}

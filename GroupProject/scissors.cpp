@@ -39,12 +39,12 @@ int Scissors::fight(Tool* tool)
 
 	if (tool->getType() == 'r') // playing rock
 	{
-		if (strength / 2  > tool->getStrength()) // scissors has a disadvantage
+		if (strength > tool->getStrength() * 2) // scissors has a disadvantage
 		{
 			return 1; // paper wins
 		}
 
-		else if (strength / 2 == tool->getStrength()) // scissors has a disadvantage
+		else if (strength == tool->getStrength() * 2) // scissors has a disadvantage
 		{
 			return 2; // tie
 		}
@@ -76,12 +76,12 @@ int Scissors::fight(Tool* tool)
 
 	else if (tool->getType() == 'p') // playing paper
 	{
-		if (strength *2 > tool->getStrength()) // scissors has advantage
+		if (strength * 2 > tool->getStrength()) // scissors has advantage
 		{
 			return 1; // scissors
 		}
 
-		else if (strength *2 == tool->getStrength()) // scissors has advantage
+		else if (strength * 2 == tool->getStrength()) // scissors has advantage
 		{
 			return 2; // tie
 		}
